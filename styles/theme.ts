@@ -18,6 +18,10 @@ const config: ThemeOverride = {
       },
     },
   },
+  fonts: {
+    heading: 'RocGrotesk',
+    body: 'RocGrotesk',
+  },
 };
 
 /**

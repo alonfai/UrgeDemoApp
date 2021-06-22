@@ -1,6 +1,16 @@
 export interface APIResponse {
-  data: Data[];
+  data: Record[];
   meta: TopLevelMeta;
+}
+
+/**
+ * Product search form data types
+ */
+export interface FormValues {
+  /**
+   * selected user search string
+   */
+  search: string;
 }
 
 /**
@@ -27,7 +37,7 @@ export class ResponseError extends Error {
   }
 }
 
-export interface Data {
+export interface Record {
   type: Type;
   id: string;
   attributes: Attributes;
