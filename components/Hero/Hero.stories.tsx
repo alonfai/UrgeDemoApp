@@ -18,10 +18,30 @@ Primary.args = {
     {
       id: '1',
       title: 'Men',
+      onClick: () => {},
     },
     {
       id: '2',
       title: 'Women',
+      onClick: () => {},
+    },
+  ],
+};
+
+export const LongText = Template.bind({});
+LongText.args = {
+  heading: 'Nike React Sneakers and Holdings',
+  subHeading: 'Pay in 4 interest-free installments.',
+  menuItems: [
+    {
+      id: '1',
+      title: 'Men',
+      onClick: () => {},
+    },
+    {
+      id: '2',
+      title: 'Women',
+      onClick: () => {},
     },
   ],
 };

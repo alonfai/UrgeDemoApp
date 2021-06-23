@@ -13,6 +13,7 @@ import { customTheme, fonts } from 'styles';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
+      cacheTime: 0,
       refetchOnWindowFocus: false,
       retry: (failureCount, error) => {
         // if api request for resouce not found, don't attempt to run a retry request. On other scenarios, try to re-run the request till max retries attempts reached

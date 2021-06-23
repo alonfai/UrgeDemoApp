@@ -30,7 +30,11 @@ export function useSearch(searchTerm: string) {
     [QUERY_KEY, { searchTerm }],
     fetchResults,
     {
-      getNextPageParam: (_, pages) => pages.length + 1,
+      getNextPageParam: (lastPage, pages) => {
+        const { total, pageSize } = lastPage.meta.meta;
+        const recordsCount = pageSize * pages.length;
+        return recordsCount < total ? pages.length + 1 : undefined;
+      },
     }
   );
   return result;

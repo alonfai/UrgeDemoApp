@@ -19,8 +19,8 @@ const config: ThemeOverride = {
     },
   },
   fonts: {
-    heading: 'RocGrotesk',
-    body: 'RocGrotesk',
+    heading: "'RocGrotesk'",
+    body: "'RocGrotesk'",
   },
 };
 

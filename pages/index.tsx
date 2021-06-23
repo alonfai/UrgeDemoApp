@@ -7,7 +7,7 @@ import { SearchResults } from 'components/SearchResults';
 import { types } from 'utils';
 // import Image from 'next/image';
 
-export default function Home() {
+export default function IndexPage() {
   const [userInput, setUserInput] = React.useState('');
   const defaultValues: types.FormValues = {
     search: '',

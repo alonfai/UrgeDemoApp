@@ -1,9 +1,10 @@
 import React from 'react';
-import { Box, Flex, Text, Image, ButtonGroup, Button } from '@chakra-ui/react';
+import { Box, Flex, Text, Image, ButtonGroup, Button, baseStyle } from '@chakra-ui/react';
 
 export interface MenuItem {
   id?: string;
   title: string;
+  onClick: () => void;
 }
 
 export interface HeroProps {
@@ -27,7 +28,15 @@ export const Hero: React.FC<HeroProps> = ({ heading, subHeading, menuItems }) =>
       fontFamily='RocGrotesk'
     >
       <Flex position='absolute' flexDir='column' top='168px' left='155px'>
-        <Box height='70px' color='#ffffff' fontSize='64px' lineHeight='100%' fontWeight='bold'>
+        <Box
+          height='70px'
+          color='#ffffff'
+          fontSize='64px'
+          lineHeight='100%'
+          fontWeight='bold'
+          maxW='800px'
+          overflow='hidden'
+        >
           {heading}
         </Box>
         <Box
@@ -56,6 +65,7 @@ export const Hero: React.FC<HeroProps> = ({ heading, subHeading, menuItems }) =>
                 lineHeight='120%'
                 bgColor='#FFFFFF'
                 color='#140CA3'
+                onClick={item.onClick}
               >
                 {item.title}
               </Button>
@@ -63,26 +73,28 @@ export const Hero: React.FC<HeroProps> = ({ heading, subHeading, menuItems }) =>
           })}
         </ButtonGroup>
       </Flex>
-      <Image
-        pos='absolute'
-        right='15px'
-        top='100px'
-        height='473px'
-        width='898.85px'
-        src='assets/ellipsis.png'
-        alt='ellipsis'
-      />
-      <Image
-        float='right'
-        pos='absolute'
-        right='15px'
-        top='72px'
-        height='500px'
-        width='790px'
-        src='assets/nike.png'
-        alt='shoes logo'
-        zIndex='100'
-      />
+      <Box>
+        <Image
+          pos='absolute'
+          right='15px'
+          top='100px'
+          height='473px'
+          width='898.85px'
+          src='assets/ellipsis.png'
+          alt='ellipsis'
+        />
+        <Image
+          float='right'
+          pos='absolute'
+          right='15px'
+          top='72px'
+          height='500px'
+          width='790px'
+          src='assets/nike.png'
+          alt='shoes logo'
+          zIndex='100'
+        />
+      </Box>
     </Flex>
   );
 };
