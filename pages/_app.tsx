@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { Hydrate } from 'react-query/hydration';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { ChakraProvider } from '@chakra-ui/react';
 import { types, constants } from 'utils';
@@ -27,11 +28,14 @@ const queryClient = new QueryClient({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
+  // Adding Chakra UI Context together with React-Query Provider for SSR with Next.js (https://react-query-v2.tanstack.com/docs/guides/ssr)
   return (
     <ChakraProvider theme={customTheme}>
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen={false} />
-        <Component {...pageProps} />
+        <Hydrate state={pageProps.dehydratedState}>
+          <Component {...pageProps} />
+        </Hydrate>
       </QueryClientProvider>
     </ChakraProvider>
   );

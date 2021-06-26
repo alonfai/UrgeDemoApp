@@ -6,7 +6,7 @@ it('should work', () => {
   const el = document.createElement('noscript');
   el.id = '__next_css__DO_NOT_USE__';
   document.head.appendChild(el);
-  console.log(el);
+  // console.log(el);
 
   mount(<IndexPage />);
 

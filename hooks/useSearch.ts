@@ -1,5 +1,5 @@
 import { QueryFunctionContext, useInfiniteQuery } from 'react-query';
-import { constants, types } from 'utils';
+import { types } from 'utils';
 
 export const QUERY_KEY = 'useSearch';
 
@@ -17,7 +17,6 @@ async function fetchResults(context: QueryFunctionContext) {
   if (context.pageParam) {
     url += `&page=${context.pageParam}`;
   }
-  console.log(process.env);
   const response = await fetch(url);
   if (!response.ok) {
     throw new types.ResponseError(response.status);

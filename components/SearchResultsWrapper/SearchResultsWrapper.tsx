@@ -4,8 +4,9 @@ import { Box } from '@chakra-ui/react';
 import { useSearch } from 'hooks';
 import { Alert } from '../Alert';
 import { Loading } from '../Loading';
-import { Product, Props as ProductProps } from '../Product';
+import { Product } from '../Product';
 import { SearchResultsHeading } from '../SearchResultsHeading';
+import { helpers } from 'utils';
 
 export type Props = {
   /**
@@ -64,14 +65,7 @@ const SearchResultsWrapper: React.FC<Props> = ({ userInput }) => {
         {data.pages.map((page, pageIndex) => (
           <React.Fragment key={pageIndex}>
             {page.data.map(product => {
-              const props: ProductProps = {
-                id: product.id ?? '',
-                price: product.attributes.sale_price?.toString() ?? '0',
-                name: product.attributes.product_name,
-                numOfPayments: product.attributes.e_payment_options?.length ?? 0,
-                retailerUrl: product.attributes.retailer_url,
-                src: product.attributes.e_image_urls_search_jpg[0][0],
-              };
+              const props = helpers.mapAPIProductToUI(product);
               return <Product key={props.id} {...props} />;
             })}
           </React.Fragment>

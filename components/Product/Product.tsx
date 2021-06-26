@@ -34,7 +34,7 @@ const Product: React.FC<Props> = forwardRef<Props, 'div'>(
     return (
       <Flex flexDir='column' maxW='350px' fontStyle='normal' ref={ref} {...rest}>
         <LinkBox key={id}>
-          <NextLink href={`/product/${23}`} passHref>
+          <NextLink href={`/product/${id}`} passHref>
             <LinkOverlay>
               <Image
                 borderRadius='15px'

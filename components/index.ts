@@ -10,3 +10,5 @@ export { SearchResultsHeading } from './SearchResultsHeading';
 export { Home } from './Home';
 export { Search } from './Search';
 export { SearchResultsWrapper } from './SearchResultsWrapper';
+
+export * as Props from './props';
