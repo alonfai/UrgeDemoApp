@@ -8,3 +8,4 @@ export type { Props as Product } from './Product';
 export type { Props as SearchResults, ItemProps } from './SearchResults';
 export type { Props as SearchResultsHeading } from './SearchResultsHeading';
 export type { Props as Home } from './Home';
+export type { Props as Search } from './Search';
