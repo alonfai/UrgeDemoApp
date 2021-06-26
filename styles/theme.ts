@@ -16,7 +16,7 @@ const config: ThemeOverride = {
   breakpoints,
   styles: {
     global: {
-      '#root': {
+      '#__next': {
         height: '100%',
       },
       html: {
