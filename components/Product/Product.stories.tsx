@@ -4,7 +4,7 @@ import { Box } from '@chakra-ui/react';
 import { Product, Props } from './Product';
 
 export default {
-  title: 'Product',
+  title: 'Components/Product',
   component: Product,
 } as Meta;
 

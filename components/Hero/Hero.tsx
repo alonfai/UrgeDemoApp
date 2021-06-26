@@ -28,9 +28,9 @@ export const Hero: React.FC<Props> = ({ heading = '', subHeading = '', items = [
       justifyContent='space-between'
       alignItems='stretch'
       bgColor='#140CA3'
-      pos='fixed'
-      zIndex='100'
-      top='0px'
+      // pos='fixed'
+      // zIndex='100'
+      // top='0px'
       w='100%'
       height={{
         base: '200px',

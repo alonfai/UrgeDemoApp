@@ -5,7 +5,7 @@ import { Box } from '@chakra-ui/react';
 import { SearchResultsHeading, Props } from './SearchResultsHeading';
 
 export default {
-  title: 'SearchResultsHeading',
+  title: 'Components/SearchResultsHeading',
   component: SearchResultsHeading,
 } as Meta;
 

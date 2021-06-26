@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Flex, Text, forwardRef, Box } from '@chakra-ui/react';
-import { Product, Props as ProductProps } from '../Product';
 
 export interface Props {
   /**

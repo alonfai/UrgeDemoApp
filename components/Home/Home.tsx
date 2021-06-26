@@ -1,21 +1,37 @@
 import * as React from 'react';
-import { forwardRef, SimpleGrid } from '@chakra-ui/react';
+import { Flex, forwardRef, SimpleGrid } from '@chakra-ui/react';
 import { Product, Props as ProductProps } from '../Product';
 import { SearchResultsHeading, Props as SearchResultsHeadingProps } from '../SearchResultsHeading';
+import { Hero, Props as HeroProps } from '../Hero';
 
 export interface Item extends ProductProps {
   id: string;
 }
 
-export interface Props extends SearchResultsHeadingProps {
+export interface Props extends SearchResultsHeadingProps, HeroProps {
   products: Item[];
 }
 
-const SearchResults: React.FC<Props> = forwardRef<Props, 'div'>(
-  ({ products, categoreis, brand, numOfRetailers, totalProducts, ...rest }, ref) => {
+const Home: React.FC<Props> = forwardRef<Props, 'div'>(
+  (
+    {
+      products,
+      categoreis,
+      brand,
+      numOfRetailers,
+      totalProducts,
+      heading,
+      subHeading,
+      items,
+      ...rest
+    },
+    ref
+  ) => {
     return (
-      <>
+      <Flex flexDir='column' alignItems='stretch'>
+        <Hero heading={heading} subHeading={subHeading} items={items} />
         <SearchResultsHeading
+          mt='48px'
           brand={brand}
           categoreis={categoreis}
           totalProducts={totalProducts}
@@ -34,9 +50,9 @@ const SearchResults: React.FC<Props> = forwardRef<Props, 'div'>(
             return <Product key={id} {...restProduct} />;
           })}
         </SimpleGrid>
-      </>
+      </Flex>
     );
   }
 );
 
-export { SearchResults };
+export { Home };

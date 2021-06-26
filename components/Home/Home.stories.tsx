@@ -1,21 +1,34 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Box } from '@chakra-ui/react';
-import { SearchResults, Props } from './SearchResults';
+
+import { Home, Props } from './Home';
 
 export default {
-  title: 'Components/SearchResults',
-  component: SearchResults,
+  title: 'Components/Home',
+  component: Home,
 } as Meta;
 
 const Template: Story<Props> = args => (
-  <Box pl='20px' pt='20px' pr='20px'>
-    <SearchResults {...args} />
+  <Box pt='20px'>
+    <Home {...args} />
   </Box>
 );
 
 export const Main = Template.bind({});
 Main.args = {
+  heading: 'Nike React Sneakers',
+  subHeading: 'Pay in 4 interest-free installements.',
+  items: [
+    {
+      content: 'Men',
+      onClick: () => {},
+    },
+    {
+      content: 'Women',
+      onClick: () => {},
+    },
+  ],
   brand: 'Nike',
   categoreis: ['Air Max', 'Air Jordan', 'Flyknit', 'Airs'],
   totalProducts: 120,

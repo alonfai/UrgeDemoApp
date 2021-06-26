@@ -7,3 +7,4 @@ export { Heading } from './Heading';
 export { Product } from './Product';
 export { SearchResults } from './SearchResults';
 export { SearchResultsHeading } from './SearchResultsHeading';
+export { Home } from './Home';

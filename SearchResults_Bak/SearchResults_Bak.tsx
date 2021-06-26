@@ -1,19 +1,8 @@
 import * as React from 'react';
-import {
-  Center,
-  Text,
-  Input,
-  Button,
-  ButtonGroup,
-  VStack,
-  Flex,
-  Heading,
-  Box,
-} from '@chakra-ui/react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useSearch } from 'hooks';
-import { Alert } from '../Alert';
-import { Loading } from '../Loading';
+import { Alert } from 'components/Alert';
+import { Loading } from 'components/Loading';
 
 export type Props = {
   /**
