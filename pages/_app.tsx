@@ -15,7 +15,7 @@ import '@fontsource/open-sans/700.css';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      cacheTime: 0,
+      cacheTime: constants.CACHE_TIMEOUT,
       refetchOnWindowFocus: false,
       retry: (failureCount, error) => {
         // if api request for resouce not found, don't attempt to run a retry request. On other scenarios, try to re-run the request till max retries attempts reached

@@ -1,5 +1,5 @@
 import { QueryFunctionContext, useInfiniteQuery } from 'react-query';
-import { types } from 'utils';
+import { constants, types } from 'utils';
 
 export const QUERY_KEY = 'useSearch';
 
@@ -13,7 +13,7 @@ type SearchPageParam = number;
 
 async function fetchResults(context: QueryFunctionContext) {
   const { searchTerm } = (context.queryKey as SearchQueryKey)[1];
-  let url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/search-results?brands=${searchTerm}`;
+  let url = `${constants.API_DOAMIN}/search-results?brands=${searchTerm}`;
   if (context.pageParam) {
     url += `&page=${context.pageParam}`;
   }

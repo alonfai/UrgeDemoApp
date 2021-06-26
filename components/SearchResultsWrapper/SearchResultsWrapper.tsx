@@ -43,10 +43,10 @@ const SearchResultsWrapper: React.FC<Props> = ({ userInput }) => {
       {dataLength === 0 && <Alert status='info'>No results were found</Alert>}
       {dataLength > 0 && (
         <SearchResultsHeading
-          brand={'Nike'}
-          categoreis={['Air Max', 'Air Jordan', 'Flyknit', 'Airs']}
-          totalProducts={120}
-          numOfRetailers={8}
+          brand={userInput}
+          categoreis={data.pages[0].meta.aggregations.categories ?? []}
+          totalProducts={data.pages[0].meta.meta.total ?? 0}
+          numOfRetailers={data.pages[0].meta.aggregations.retailers ?? 0}
         />
       )}
       <InfiniteScroll

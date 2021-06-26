@@ -1,6 +1,7 @@
 import log from 'loglevel';
+import { constants } from 'utils';
 
-log.setDefaultLevel(process.env.NODE_ENV === 'production' ? 'error' : 'trace');
+log.setDefaultLevel(constants.IsProduction ? 'error' : 'trace');
 
 /**
  * Output trace message to console (level '0')

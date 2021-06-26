@@ -32,7 +32,14 @@ export interface Props {
 const Product: React.FC<Props> = forwardRef<Props, 'div'>(
   ({ id, src, name, retailerUrl, price, numOfPayments, ...rest }, ref) => {
     return (
-      <Flex flexDir='column' maxW='350px' fontStyle='normal' ref={ref} {...rest}>
+      <Flex
+        flexDir='column'
+        maxW='350px'
+        justifyContent='space-between'
+        fontStyle='normal'
+        ref={ref}
+        {...rest}
+      >
         <LinkBox key={id}>
           <NextLink href={`/product/${id}`} passHref>
             <LinkOverlay>
@@ -49,12 +56,11 @@ const Product: React.FC<Props> = forwardRef<Props, 'div'>(
             </LinkOverlay>
           </NextLink>
         </LinkBox>
-        <Text mt='22px' fontWeight='bold' fontSize='16px' lineHeight='130%' h='21px'>
+        <Text mt='22px' fontWeight='bold' fontSize='16px' lineHeight='130%'>
           {name}
         </Text>
         <Link
           mt='3px'
-          h='21px'
           fontSize='15px'
           fontWeight='500'
           lineHeight='140%'
@@ -65,10 +71,10 @@ const Product: React.FC<Props> = forwardRef<Props, 'div'>(
         >
           {retailerUrl}
         </Link>
-        <Text mt='9px' h='20px' fontSize='20px' fontWeight='bold' lineHeight='130%' color='#000000'>
+        <Text mt='9px' fontSize='20px' fontWeight='bold' lineHeight='130%' color='#000000'>
           ${price}
         </Text>
-        <Text mt='15px' h='16px' fontSize='12px' lineHeight='130%' color='#525761' opacity='0.8'>
+        <Text mt='15px' fontSize='12px' lineHeight='130%' color='#525761' opacity='0.8'>
           ${price} split into {numOfPayments} payments
         </Text>
       </Flex>
