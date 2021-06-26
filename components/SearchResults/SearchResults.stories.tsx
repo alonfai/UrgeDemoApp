@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { SearchResults, Props } from './SearchResults';
 import { Box } from '@chakra-ui/react';
+import { SearchResults, Props } from './SearchResults';
 
 export default {
   title: 'SearchResults',
@@ -9,13 +9,17 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = args => (
-  <Box pl='20px' pt='20px'>
+  <Box pl='20px' pt='20px' pr='20px'>
     <SearchResults {...args} />
   </Box>
 );
 
 export const Main = Template.bind({});
 Main.args = {
+  brand: 'Nike',
+  categoreis: ['Air Max', 'Air Jordan', 'Flyknit', 'Airs'],
+  totalProducts: 120,
+  numOfRetailers: 8,
   products: [
     {
       id: '1',

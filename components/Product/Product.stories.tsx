@@ -1,8 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-
-import { Product, Props } from './Product';
 import { Box } from '@chakra-ui/react';
+import { Product, Props } from './Product';
 
 export default {
   title: 'Product',
