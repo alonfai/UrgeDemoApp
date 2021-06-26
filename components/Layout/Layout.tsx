@@ -7,7 +7,7 @@ export type Props = {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <Flex flexWrap='wrap' alignItems='center' justifyContent='center' mt='10'>
+    <Flex alignItems='center' justifyContent='center'>
       {children}
     </Flex>
   );

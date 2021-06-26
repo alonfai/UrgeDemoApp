@@ -1,100 +1,89 @@
 import React from 'react';
-import { Box, Flex, Text, Image, ButtonGroup, Button, baseStyle } from '@chakra-ui/react';
+import { Box, Flex, Image, ButtonGroup } from '@chakra-ui/react';
+import { Button, Props as ButtonProps } from '../Button';
+import { Heading } from '../Heading';
 
-export interface MenuItem {
-  id?: string;
-  title: string;
-  onClick: () => void;
-}
-
-export interface HeroProps {
-  heading: string;
-
-  subHeading: string;
-
-  menuItems: MenuItem[];
+export interface Props {
+  /**
+   * Optional Main heading
+   */
+  heading?: string;
+  /**
+   * Optional sub Heading element
+   */
+  subHeading?: string;
+  /**
+   * Optional collection of items clickable
+   */
+  items?: ButtonProps[];
 }
 
 /**
  * Primary UI component for user interaction
  */
-export const Hero: React.FC<HeroProps> = ({ heading, subHeading, menuItems }) => {
+export const Hero: React.FC<Props> = ({ heading = '', subHeading = '', items = [] }) => {
   return (
     <Flex
-      justifyContent='flex-end'
+      flexDir='row'
+      justifyContent='space-between'
       alignItems='stretch'
       bgColor='#140CA3'
-      h='557px'
-      fontFamily='RocGrotesk'
+      pos='fixed'
+      zIndex='100'
+      top='0px'
+      w='100%'
+      height={{
+        base: '200px',
+        md: '400px',
+        xl: '557px',
+      }}
     >
-      <Flex position='absolute' flexDir='column' top='168px' left='155px'>
-        <Box
-          height='70px'
-          color='#ffffff'
-          fontSize='64px'
-          lineHeight='100%'
-          fontWeight='bold'
-          maxW='800px'
-          overflow='hidden'
-        >
-          {heading}
+      <Flex
+        flexDir='column'
+        justifyContent={{ base: 'flex-start', md: 'center' }}
+        alignItems='flex-start'
+        pl={{ base: '100px', md: '0px' }}
+        ml={{
+          base: '20px',
+          md: '50px',
+          xl: '155px',
+        }}
+        mt={{ base: '10px', md: '60px', xl: '168px' }}
+        pt={{ base: '10px', md: '0px' }}
+      >
+        <Heading type='Header' content={heading} />
+        <Heading type='SubHeader' content={subHeading} />
+        <Box mt={{ base: '10px', md: '0px' }}>
+          {/* Buttons collection */}
+          <ButtonGroup variant='outline' spacing={{ base: '10px', md: '16px' }}>
+            {items.map((item, index) => {
+              return <Button key={index} onClick={item.onClick} content={item.content} />;
+            })}
+          </ButtonGroup>
         </Box>
-        <Box
-          height='70px'
-          width='576px'
-          fontSize='30px'
-          lineHeight='120%'
-          color='#ffffff'
-          fontStyle='normal'
-        >
-          {subHeading}
-        </Box>
-        {/* Buttons collection */}
-        <ButtonGroup variant='outline' spacing='16'>
-          {menuItems.map((item, index) => {
-            return (
-              <Button
-                w='132px'
-                borderRadius='4px'
-                height='43px'
-                pt='12'
-                pb='12'
-                key={item.id ?? index}
-                fontSize='16px'
-                fontWeight='bold'
-                lineHeight='120%'
-                bgColor='#FFFFFF'
-                color='#140CA3'
-                onClick={item.onClick}
-              >
-                {item.title}
-              </Button>
-            );
-          })}
-        </ButtonGroup>
       </Flex>
-      <Box>
+      <Image
+        pos='absolute'
+        display={{ base: 'none', md: 'block' }}
+        top={{ md: '-70px', lg: '85px' }}
+        height='473px'
+        pt={{ md: '50px', lg: '0px' }}
+        width={{ md: '500px', lg: '898.85px' }}
+        zIndex='1'
+        right='0px'
+        src='assets/ellipsis.svg'
+        alt='ellipsis'
+      />
+      <Flex justifyContent='flex-end' pt={{ base: '10px', md: '68px' }}>
         <Image
-          pos='absolute'
-          right='15px'
-          top='100px'
-          height='473px'
-          width='898.85px'
-          src='assets/ellipsis.png'
-          alt='ellipsis'
-        />
-        <Image
-          float='right'
-          pos='absolute'
-          right='15px'
-          top='72px'
-          height='500px'
-          width='790px'
-          src='assets/nike.png'
+          src='/assets/nike.svg'
+          display={{ base: 'none', md: 'block' }}
+          w={{ md: '400px', lg: '568px' }}
+          h='100%'
           alt='shoes logo'
           zIndex='100'
         />
-      </Box>
+      </Flex>
     </Flex>
   );
 };

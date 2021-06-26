@@ -1,11 +1,12 @@
 import type { AppProps } from 'next/app';
-import { Global } from '@emotion/react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { ChakraProvider } from '@chakra-ui/react';
-
 import { types, constants } from 'utils';
-import { customTheme, fonts } from 'styles';
+import { customTheme } from 'styles';
+
+import '@fontsource/raleway/400.css';
+import '@fontsource/open-sans/700.css';
 
 /**
  * create query client object
@@ -30,7 +31,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ChakraProvider theme={customTheme}>
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen={false} />
-        <Global styles={fonts} />
         <Component {...pageProps} />
       </QueryClientProvider>
     </ChakraProvider>
