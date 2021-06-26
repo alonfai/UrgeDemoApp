@@ -1,10 +1,10 @@
 import * as React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { Box, Center } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import { useSearch } from 'hooks';
 import { Alert } from '../Alert';
 import { Loading } from '../Loading';
-import { SearchResults } from '../SearchResults';
+import { Product, Props as ProductProps } from '../Product';
 import { SearchResultsHeading } from '../SearchResultsHeading';
 
 export type Props = {
@@ -53,21 +53,27 @@ const SearchResultsWrapper: React.FC<Props> = ({ userInput }) => {
         next={fetchNextPage}
         hasMore={!!hasNextPage}
         loader={<Loading />}
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gridColumnGap: '24px',
+          gridRowGap: '41px',
+          marginTop: '26px',
+        }}
       >
         {data.pages.map((page, pageIndex) => (
           <React.Fragment key={pageIndex}>
-            <SearchResults
-              products={page.data.map(product => {
-                return {
-                  id: product.id ?? '',
-                  price: product.attributes.sale_price?.toString() ?? '0',
-                  name: product.attributes.product_name,
-                  numOfPayments: product.attributes.e_payment_options?.length ?? 0,
-                  retailerUrl: product.attributes.retailer_url,
-                  src: product.attributes.e_image_urls_search_jpg[0][0],
-                };
-              })}
-            />
+            {page.data.map(product => {
+              const props: ProductProps = {
+                id: product.id ?? '',
+                price: product.attributes.sale_price?.toString() ?? '0',
+                name: product.attributes.product_name,
+                numOfPayments: product.attributes.e_payment_options?.length ?? 0,
+                retailerUrl: product.attributes.retailer_url,
+                src: product.attributes.e_image_urls_search_jpg[0][0],
+              };
+              return <Product key={props.id} {...props} />;
+            })}
           </React.Fragment>
         ))}
       </InfiniteScroll>
