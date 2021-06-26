@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { Box, Flex, Input, Button, ButtonGroup, VStack } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 import { Hero, Layout } from 'components';
-import { SearchResults } from 'components/SearchResults';
+// import { SearchResults } from 'components/SearchResults';
 import { types } from 'utils';
 // import Image from 'next/image';
 
@@ -81,7 +81,7 @@ export default function IndexPage() {
               </form>
             </Flex>
             <Box pos='relative' top='150px'>
-              {userInput && <SearchResults userInput={userInput} />}
+              {/* {userInput && <SearchResults userInput={userInput} />} */}
             </Box>
           </VStack>
         </Layout>

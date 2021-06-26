@@ -32,6 +32,7 @@ const config: ThemeOverride = {
   fonts: {
     heading: 'Open Sans',
     body: 'Raleway',
+    mono: 'Raleway',
   },
 };
 
