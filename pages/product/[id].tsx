@@ -4,5 +4,5 @@ export default function Post() {
   const router = useRouter();
   const { id } = router.query;
 
-  return <h1>Post Slug: {slug}</h1>;
+  return <h1>Post Slug: {id}</h1>;
 }

@@ -1,7 +1,12 @@
 import * as React from 'react';
-import { Flex, Image, Text, forwardRef, Link } from '@chakra-ui/react';
+import NextLink from 'next/link';
+import { Flex, Image, Text, forwardRef, Link, LinkOverlay, LinkBox } from '@chakra-ui/react';
 
 export interface Props {
+  /**
+   * Product Id
+   */
+  id: string;
   /**
    * Url of the product image based
    */
@@ -25,19 +30,25 @@ export interface Props {
 }
 
 const Product: React.FC<Props> = forwardRef<Props, 'div'>(
-  ({ src, name, retailerUrl, price, numOfPayments, ...rest }, ref) => {
+  ({ id, src, name, retailerUrl, price, numOfPayments, ...rest }, ref) => {
     return (
       <Flex flexDir='column' maxW='350px' fontStyle='normal' ref={ref} {...rest}>
-        <Image
-          borderRadius='15px'
-          border='10px solid #FAF0E6'
-          background='linear-gradient(0deg, rgba(235, 235, 235, 0.15), rgba(235, 235, 235, 0.15))'
-          boxSize='border-box'
-          w={{ base: '150px', md: '200px', lg: '264px' }}
-          h={{ base: '200px', md: '300px', lg: '399px' }}
-          src={src}
-          alt={name}
-        />
+        <LinkBox key={id}>
+          <NextLink href={`/product/${23}`} passHref>
+            <LinkOverlay>
+              <Image
+                borderRadius='15px'
+                border='10px solid #FAF0E6'
+                background='linear-gradient(0deg, rgba(235, 235, 235, 0.15), rgba(235, 235, 235, 0.15))'
+                boxSize='border-box'
+                w={{ base: '150px', md: '200px', lg: '264px' }}
+                h={{ base: '200px', md: '300px', lg: '399px' }}
+                src={src}
+                alt={name}
+              />
+            </LinkOverlay>
+          </NextLink>
+        </LinkBox>
         <Text mt='22px' fontWeight='bold' fontSize='16px' lineHeight='130%' h='21px'>
           {name}
         </Text>
