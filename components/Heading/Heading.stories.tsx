@@ -1,5 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
+import { Box } from '@chakra-ui/react';
 
 import { Heading, Props } from './Heading';
 
@@ -8,7 +9,11 @@ export default {
   component: Heading,
 } as Meta;
 
-const Template: Story<Props> = args => <Heading bgColor='red' {...args} />;
+const Template: Story<Props> = args => (
+  <Box bgColor='red'>
+    <Heading {...args} />
+  </Box>
+);
 
 export const Header = Template.bind({});
 Header.args = {
