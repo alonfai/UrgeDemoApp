@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
 import { Box, Flex, VStack } from '@chakra-ui/react';
-import { Layout, Search } from 'components';
+import { Search, SearchResultsWrapper } from 'components';
 
 export default function IndexPage() {
   const defaultValue = '';
@@ -22,8 +22,7 @@ export default function IndexPage() {
         <meta name='description' content='List of different products catalog' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Box as='main'>
-        {/* <Hero
+      {/* <Hero
           heading='Product catalog'
           subHeading='Search for items'
           items={[
@@ -37,17 +36,12 @@ export default function IndexPage() {
             },
           ]}
         /> */}
-        <Layout>
-          <VStack mt='20px' flex='1' pl='20px' pr='20px'>
-            <Flex justifyContent='center' w='100%'>
-              <Search defaultValue='' onReset={onReset} onSubmit={onSubmit} />
-            </Flex>
-            <Box pos='relative' top='150px'>
-              {/* {userInput && <SearchResults userInput={userInput} />} */}
-            </Box>
-          </VStack>
-        </Layout>
-      </Box>
+      <VStack as='main' mt='20px' pl='20px' pr='20px' alignItems='stretch'>
+        <Flex justifyContent='center' w='100%'>
+          <Search defaultValue='' onReset={onReset} onSubmit={onSubmit} />
+        </Flex>
+        <Box mt='20px'>{userInput && <SearchResultsWrapper userInput={userInput} />}</Box>
+      </VStack>
     </>
   );
 }

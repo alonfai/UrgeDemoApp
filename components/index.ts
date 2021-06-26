@@ -9,3 +9,4 @@ export { SearchResults } from './SearchResults';
 export { SearchResultsHeading } from './SearchResultsHeading';
 export { Home } from './Home';
 export { Search } from './Search';
+export { SearchResultsWrapper } from './SearchResultsWrapper';

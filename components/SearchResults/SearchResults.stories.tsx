@@ -16,10 +16,6 @@ const Template: Story<Props> = args => (
 
 export const Main = Template.bind({});
 Main.args = {
-  brand: 'Nike',
-  categoreis: ['Air Max', 'Air Jordan', 'Flyknit', 'Airs'],
-  totalProducts: 120,
-  numOfRetailers: 8,
   products: [
     {
       id: '1',
