@@ -6,3 +6,4 @@ export { Button } from './Button';
 export { Heading } from './Heading';
 export { Product } from './Product';
 export { SearchResults } from './SearchResults';
+export { SearchResultsHeading } from './SearchResultsHeading';
