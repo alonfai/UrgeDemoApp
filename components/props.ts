@@ -5,6 +5,6 @@ export type { Props as Hero } from './Hero';
 export type { Props as Button } from './Button';
 export type { Props as Heading } from './Heading';
 export type { Props as Product } from './Product';
-export type { Props as SearchResults } from './SearchResults';
+export type { Props as SearchResults, ItemProps } from './SearchResults';
 export type { Props as SearchResultsHeading } from './SearchResultsHeading';
 export type { Props as Home } from './Home';

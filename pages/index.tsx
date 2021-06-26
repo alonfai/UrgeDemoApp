@@ -2,10 +2,8 @@ import * as React from 'react';
 import Head from 'next/head';
 import { Box, Flex, Input, Button, ButtonGroup, VStack } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
-import { Hero, Layout } from 'components';
-// import { SearchResults } from 'components/SearchResults';
+import { Layout } from 'components';
 import { types } from 'utils';
-// import Image from 'next/image';
 
 export default function IndexPage() {
   const [userInput, setUserInput] = React.useState('');
@@ -34,33 +32,23 @@ export default function IndexPage() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Box as='main'>
+        {/* <Hero
+          heading='Product catalog'
+          subHeading='Search for items'
+          items={[
+            {
+              content: 'Men',
+              onClick: () => {},
+            },
+            {
+              content: 'Women',
+              onClick: () => {},
+            },
+          ]}
+        /> */}
         <Layout>
-          <Hero
-            heading='Product catalog'
-            subHeading='Search for items'
-            menuItems={[
-              {
-                id: '1',
-                title: 'Men',
-                onClick: () => {},
-              },
-              {
-                id: '2',
-                title: 'Women',
-                onClick: () => {},
-              },
-            ]}
-          />
-          <VStack flex='1' mt={{ base: '200px', md: '430px', lg: '557px' }} pl='20px' pr='20px'>
-            <Flex
-              pos='fixed'
-              justifyContent='center'
-              w='100%'
-              pt='20px'
-              pb='20px'
-              zIndex='100'
-              bgColor='white'
-            >
+          <VStack mt='20px' flex='1' pl='20px' pr='20px'>
+            <Flex justifyContent='center' w='100%'>
               <form onSubmit={handleSubmit(onSubmit)}>
                 {/* register your input into the hook by invoking the "register" function */}
                 <Input
