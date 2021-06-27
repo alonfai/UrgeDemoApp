@@ -3,12 +3,12 @@ import { Alert, Props } from './Alert';
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 
 describe('Alert', () => {
-  it('Show title only if provided', async () => {
+  it('Show title only if provided', () => {
     const props: Props = {
       status: 'info',
       children: 'Message',
     };
-    const { debug } = render(<Alert {...props} />);
+    render(<Alert {...props} />);
     // const element = screen.getByText('Alert Message');
     // debug();
     // ex

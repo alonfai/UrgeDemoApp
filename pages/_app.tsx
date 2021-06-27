@@ -12,7 +12,7 @@ import '@fontsource/open-sans/700.css';
 /**
  * create query client object
  */
-const queryClient = new QueryClient({
+export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       cacheTime: constants.CACHE_TIMEOUT,
