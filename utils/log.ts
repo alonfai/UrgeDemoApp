@@ -1,3 +1,4 @@
+/* eslint-disable testing-library/no-debug */
 import log from 'loglevel';
 import { constants } from 'utils';
 
