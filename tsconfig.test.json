@@ -10,7 +10,9 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "paths": {},
+    "paths": {
+      "test-utils": ["./setup/test-utils"]
+    },
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
