@@ -72,9 +72,9 @@ Executes all testing suites found in project that ending in *.spec.ts /*.spec.ts
 
 Executes Jest testing setup or in watch interactive mode
 
-### `yarn test:e2e`
+### `yarn test:e2e` / `yarn test:run`
 
-Executes the Cypress E2E testing
+Executes the Cypress E2E testing in watch or normal mode
 
 ### `yarn check-format` / `yarn check-types` / `yarn check-lint` / `yarn format`
 

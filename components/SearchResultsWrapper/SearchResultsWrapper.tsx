@@ -40,7 +40,11 @@ const SearchResultsWrapper: React.FC<Props> = ({ userInput }) => {
 
   return (
     <Box mt='5px'>
-      {dataLength === 0 && <Alert status='info'>No results were found</Alert>}
+      {dataLength === 0 && (
+        <Alert data-cy='missingResultPanel' status='info'>
+          No results were found
+        </Alert>
+      )}
       {dataLength > 0 && (
         <SearchResultsHeading
           brand={userInput}
@@ -54,6 +58,7 @@ const SearchResultsWrapper: React.FC<Props> = ({ userInput }) => {
         next={fetchNextPage}
         hasMore={!!hasNextPage}
         loader={<Loading />}
+        data-cy='resultsGrid'
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',

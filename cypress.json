@@ -1,7 +1,11 @@
 {
   "baseUrl": "http://localhost:3000",
-  "testFiles": "cypress/integration/**/*.spec.{ts,tsx}",
-  "componentFolder": "cypress/pages",
+  "testFiles": "**/*.spec.{ts,tsx}",
+  "component": {
+    "testFiles": "**/*.spec.{ts,tsx}",
+    "componentFolder": "components"
+  },
+  "chromeWebSecurity": false,
   "viewportWidth": 1920,
   "viewportHeight": 1200
 }

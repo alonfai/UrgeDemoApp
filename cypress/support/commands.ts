@@ -24,8 +24,19 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-import '@testing-library/cypress/add-commands';
+require('@testing-library/cypress/add-commands');
 
-Cypress.Commands.add('dataCy', value => {
-  return cy.get(`[data-cy=${value}]`);
-});
+// load https://github.com/NoriSte/cypress-wait-until
+// which adds "cy.waitUntil" command
+// note that this 3rd party module includes TypeScript "types"
+// file that correctly adds "waitUntil" to the Cypress Chainer namespace
+require('cypress-wait-until');
+
+/**
+ * Adds custom command "cy.dataCy" to the global "cy" object
+ *
+ * @example cy.dataCy('greeting')
+ */
+Cypress.Commands.add('dataCy', value => cy.get(`[data-cy=${value}]`));
+
+// the type defnitions be defined in "index.d.ts" file

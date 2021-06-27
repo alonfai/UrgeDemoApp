@@ -74,7 +74,7 @@ export default function ProductPage() {
   const productRecord = data.data.find(p => p.id === id);
   if (!productRecord) {
     return (
-      <Alert status='info'>
+      <Alert data-cy='missingResultPanel' status='info'>
         No product <strong>{id}</strong> was found
       </Alert>
     );

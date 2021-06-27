@@ -13,6 +13,7 @@ type SearchPageParam = number;
 
 async function fetchResults(context: QueryFunctionContext) {
   const { searchTerm } = (context.queryKey as SearchQueryKey)[1];
+
   let url = `${constants.API_DOAMIN}/search-results?brands=${searchTerm}`;
   if (context.pageParam) {
     url += `&page=${context.pageParam}`;

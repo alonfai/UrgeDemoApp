@@ -17,6 +17,8 @@
 const injectDevServer = require('@cypress/react/plugins/next');
 const codeCoverageTask = require('@cypress/code-coverage/task');
 
+require('dotenv').config();
+
 /**
  * @type {Cypress.PluginConfig}
  */
@@ -30,9 +32,9 @@ module.exports = (on, config) => {
 
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
-  // if (config.testingType === 'component') {
-  //   injectDevServer(on, config)
-  // }
+  if (config.testingType === 'component') {
+    injectDevServer(on, config);
+  }
   injectDevServer(on, config);
   codeCoverageTask(on, config);
 

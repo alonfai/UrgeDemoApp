@@ -42,16 +42,17 @@ const Search: React.FC<Props> = ({ defaultValue, onSubmit, onReset }) => {
       {/* register your input into the hook by invoking the "register" function */}
       <Input
         defaultValue={''}
+        data-cy='formInput'
         {...register('search', { required: true })}
         placeholder='search brand...'
         autoComplete='off'
       />
       {/* Buttons collection */}
       <ButtonGroup variant='outline' spacing='6' mt='5'>
-        <Button colorScheme='orange' type='submit' disabled={!search}>
+        <Button data-cy='submitForm' colorScheme='orange' type='submit' disabled={!search}>
           Search...
         </Button>
-        <Button colorScheme='red' onClick={handleReset}>
+        <Button data-cy='resetForm' colorScheme='red' onClick={handleReset}>
           Clear
         </Button>
       </ButtonGroup>
