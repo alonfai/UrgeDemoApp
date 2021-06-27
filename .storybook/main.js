@@ -3,7 +3,12 @@ const toPath = _path => path.join(process.cwd(), _path);
 
 module.exports = {
   stories: ['../components/**/*.stories.mdx', '../components/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-links', '@storybook/addon-a11y', '@storybook/addon-essentials'],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-a11y',
+    '@storybook/addon-jest',
+    '@storybook/addon-essentials',
+  ],
   webpackFinal: async baseConfig => {
     const nextConfig = require('../next.config.js');
     // merge whatever from nextConfig into the webpack config storybook will use

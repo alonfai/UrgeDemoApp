@@ -68,6 +68,14 @@ Launches the test runner in the interactive watch mode and an integrated coverag
 
 Executes all testing suites found in project that ending in *.spec.ts /*.spec.tsx
 
+### `yarn test` / `yarn test:watch`
+
+Executes Jest testing setup or in watch interactive mode
+
+### `yarn test:e2e`
+
+Executes the Cypress E2E testing
+
 ### `yarn check-format` / `yarn check-types` / `yarn check-lint` / `yarn format`
 
 Executes ESLint and/or Prettier with auto fix problems on all files
