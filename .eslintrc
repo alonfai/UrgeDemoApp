@@ -1,3 +1,4 @@
 {
-  "extends": ["next", "prettier", "next/core-web-vitals", "plugin:cypress/recommended" ]
+  "extends": ["next", "prettier", "next/core-web-vitals", "plugin:cypress/recommended", "plugin:testing-library/react", "plugin:jest-dom/recommended" ],
+  "plugins": ["testing-library", "jest-dom"]
 }

@@ -1,10 +1,3 @@
-// jest.config.js
-const { pathsToModuleNameMapper } = require('ts-jest/utils');
-
-// In the following statement, replace `./tsconfig` with the path to your `tsconfig` file
-// which contains the path mapping (ie the `compilerOptions.paths` option):
-const { compilerOptions } = require('./tsconfig.test.json');
-
 module.exports = {
   preset: 'ts-jest',
   globals: {
@@ -23,7 +16,6 @@ module.exports = {
     '<rootDir>/setup', // Our setup utility folder
     __dirname, // the root directory
   ],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths /*, { prefix: '<rootDir>/' } */),
   modulePathIgnorePatterns: ['<rootDir>/cypress/'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
