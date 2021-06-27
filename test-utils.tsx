@@ -1,8 +1,9 @@
 import React, { FC, ReactElement } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { ChakraProvider } from '@chakra-ui/react';
-import { QueryClientProvider } from 'react-query';
-import { queryClient } from '../pages/_app';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 
 const AllTheProviders: FC = ({ children }) => {
   return (
